@@ -60,4 +60,29 @@ public class Compte {
     public int hashCode() {
         return Objects.hash(id, numero, solde);
     }
+
+
+    //attribut navigationnels
+    private Client client;
+    private final int N = 10;
+    private int nombreTransaction;
+    private TypeTransaction[] arrayTransactions = new TypeTransaction[N];
+
+
+    public Client getClient() {
+        return client;
+    }
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public TypeTransaction[] getArrayTransactions() {
+        return arrayTransactions;
+    }
+    public void addTransaction(TypeTransaction transaction){
+        arrayTransactions[nombreTransaction] = transaction;
+        nombreTransaction++;
+    }
+
+
 }

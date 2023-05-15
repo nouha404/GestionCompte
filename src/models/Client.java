@@ -6,9 +6,6 @@ public class Client {
     private int id;
     private String nomComplet;
     private String tel;
-    private String[] arrayClient;
-    private String[] arrayCompte;
-    private String[] arrayTransaction;
 
     public Client() {
     }
@@ -17,7 +14,6 @@ public class Client {
         this.id = id;
         this.nomComplet = nomComplet;
         this.tel = tel;
-        this.arrayClient = new String[]{arrayClient[0]};
     }
 
     public int getId() {
@@ -60,21 +56,20 @@ public class Client {
         return id == client.id && Objects.equals(nomComplet, client.nomComplet) && Objects.equals(tel, client.tel);
     }
 
-    /*
-        public void ajoutClient(int id, String nomComplet, String tel){
-        //Client nouveauClient = new Client(id,nomComplet,tel);
-        if (arrayClient == null) {
-            arrayClient = new String[]{nouveauClient.toString()};
-        } else {
-            String[] nouveauArrayClientWithoutNullVal = new String[arrayClient.length + 1];
-            for (int i = 0; i< arrayClient.length; i++){
-                nouveauArrayClientWithoutNullVal[i] = arrayClient[i];
-            }
-            nouveauArrayClientWithoutNullVal[arrayClient.length] = nouveauClient.toString();
-            arrayClient = nouveauArrayClientWithoutNullVal;
-        }
+    //attribut navigationnels
+    // final == taille
+    private final int N = 10;
+    private Compte[] arrayCompte = new Compte[N];
+    private int nombreCompte;
 
+    public Compte[] getArrayCompte() {
+        return arrayCompte;
     }
-     */
+
+    public void addInArrayCompte(Compte compte){
+        arrayCompte[nombreCompte] = compte;
+        nombreCompte++;
+    }
+    //a chaque fois que l'on a une relation oneToMany on aura deux methode :  get et add
 
 }
